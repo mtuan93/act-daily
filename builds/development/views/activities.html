@@ -1,0 +1,28 @@
+<div class="activities cf">
+    
+    <h1>Add Your Activities</h1>
+    <form class="formgroup addactivity cf"
+      name="myform"
+      ng-submit="addActivity()"
+      novalidate>
+      <div class="inputwrapper">
+        <input type="text" name="activityname" 
+        placeholder="Activity" 
+          ng-model="activityname" ng-required="true">
+        <input type="text" name="activitytime" 
+        placeholder="Time duration of this activity" 
+          ng-model="activitytime" ng-required="true">
+      </div>
+      <button type="submit" class="btn"
+        ng-disabled="myform.$invalid">+</button>
+    </form>
+
+    <h2>Your activities</h2>
+    <div class="activity" ng-repeat="(key, activity) in activities">
+      <button class="btn btn-delete tooltip"
+        ng-click="deleteActivity(key)">
+      <span>Delete this activity</span></button>
+      <span class="text">{{activity.name}}</span>
+      <span class="text">{{activity.time}}</span>
+    </div><!-- activity list -->
+</div><!-- activities cf -->

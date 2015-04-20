@@ -1,0 +1,15 @@
+{
+  "name": "Act-Daily",
+  "version": "0.0.1",
+  "description": "A Web Application for users to register, login and post their daily activities and allowed other users to comment",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mtuan93/act-daily.git"
+  },
+  "author": "Tuan Nguyen",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-util": "^2.2.20",
+    "gulp-webserver": "^0.8.1"
+  }
+}

@@ -1,0 +1,48 @@
+<div class="activitieslist">
+  <h1>Daily Activities</h1>
+  <p>Here's a list of {{targetUser.firstname}}'s latest activities</p>
+
+  <ul class="userlist cf">
+    <li ng-class="activity.userState" 
+      ng-repeat="activity in activities | orderBy: order">
+      <div class="activity">
+        <div class="buttons" ng-show="currentUser">
+          <button class="btn btn-love tooltip"
+            ng-click="showComment(activity)">
+            <span>Comment</span></button>
+        </div> <!-- buttons -->
+        <div class="info">
+          <div class="date">
+            {{ activity.name }}
+          </div><!-- date -->
+        </div><!-- info -->
+
+        <div class="showactivities" ng-show="activity.show">
+          <form class="cf"
+            ng-submit="giveComment(activity, activity.giftText)"
+            novalidate>
+            <input type="text" name="giftText"
+              ng-required="true"
+              placeholder="Comment on this activity"
+              ng-model="activity.giftText">
+            <button type="submit" class="btn"
+              ng-disabled="myform.$invalid">+</button>
+          </form>
+
+          <ul class="commentslist cf">
+            <li class="cf" ng-repeat="(key,comment) in activity.comments">
+              <div class="comment">{{comment.name}}
+                <div class="buttons" ng-show="currentUser">
+                  <button class="btn btn-delete tooltip"
+                    confirmation-needed = "Are you sure you want to delete this activity?"
+                    ng-click="deleteComment(activity.$id,key)">
+                    <span>Delete this comment</span></button>
+                </div><!-- buttons -->
+              </div><!-- comment -->
+            </li>            
+          </ul>
+        </div><!-- showactivities -->
+      </div><!-- activity -->
+    </li>
+  </ul>
+</div>
