@@ -5,10 +5,11 @@ This is a web application that allows users to register, login, and post their d
 The web is written by AngularJs and the server uses Firebase API as backend service.
 
 Demo:
-Clone the project by running: git clone https://github.com/mtuan93/act-daily.git
-Install npm plugins by running: npm install
-Install gulp by running: npm install -g gulp
-Run a local server by running: gulp
-The website is available at: localhost:8000
+
+Clone the project by running: git clone https://github.com/mtuan93/act-daily.git.
+Install npm plugins by running: npm install.
+Install gulp by running: npm install -g gulp.
+Run a local server by running: gulp.
+The website is available at: localhost:8000.
 
 Tuan Nguyen
