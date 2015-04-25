@@ -32,7 +32,7 @@
           <ul class="commentslist cf">
             <li class="cf" ng-repeat="(key,comment) in activity.comments">
               <div class="comment">{{comment.name}}
-                <div class="buttons" ng-show="currentUser">
+                <div class="buttons" ng-show="isPostedUser(activity.$id, key, currentUser)">
                   <button class="btn btn-delete tooltip"
                     confirmation-needed = "Are you sure you want to delete this activity?"
                     ng-click="deleteComment(activity.$id,key)">

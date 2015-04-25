@@ -27,8 +27,10 @@ myApp.controller('ActivitiesListController', function($scope, $rootScope, $fireb
     var refLove = new Firebase(FIREBASE_URL + "users/" +
     $scope.whichuser + '/activities/' + myItem.$id + '/comments');
     var activitiesObj = $firebase(refLove);
+    var giver = $rootScope.currentUser;
     var myData = {
       name: myGift,
+      giver: $rootScope.currentUser.$id,
       date: Firebase.ServerValue.TIMESTAMP
     };
     activitiesObj.$push(myData);
@@ -42,4 +44,11 @@ myApp.controller('ActivitiesListController', function($scope, $rootScope, $fireb
     record.$remove(comment);
   }; //deleteLove
 
+  $scope.isPostedUser = function(actId, key, user) {
+    var refComment = new Firebase(FIREBASE_URL + "users/" + $scope.whichuser + "/activities/" + actId +
+      "/comments/" + key);
+    var commentObj = $firebase(refComment).$asObject();
+    commentObj.$bindTo($scope, "data");
+    return $scope.data.giver === user.$id;
+  };
 }); //ActivitiesListController
