@@ -16,7 +16,7 @@ myApp.controller('ActivitiesListController', function($scope, $rootScope, $fireb
 
   $scope.showComment = function(myItem) {
     myItem.show = !myItem.show;
-    if(myItem.userState == 'expanded') {
+    if(myItem.userState === 'expanded') {
       myItem.userState = '';
     } else {
       myItem.userState = 'expanded';
@@ -30,7 +30,9 @@ myApp.controller('ActivitiesListController', function($scope, $rootScope, $fireb
     var giver = $rootScope.currentUser;
     var myData = {
       name: myGift,
-      giver: $rootScope.currentUser.$id,
+      giverFirstName: $rootScope.currentUser.firstname,
+      giverLastName: $rootScope.currentUser.lastname,
+      giverId: $rootScope.currentUser.$id,
       date: Firebase.ServerValue.TIMESTAMP
     };
     activitiesObj.$push(myData);
@@ -43,12 +45,4 @@ myApp.controller('ActivitiesListController', function($scope, $rootScope, $fireb
     var record = $firebase(refLove);
     record.$remove(comment);
   }; //deleteLove
-
-  $scope.isPostedUser = function(actId, key, user) {
-    var refComment = new Firebase(FIREBASE_URL + "users/" + $scope.whichuser + "/activities/" + actId +
-      "/comments/" + key);
-    var commentObj = $firebase(refComment).$asObject();
-    commentObj.$bindTo($scope, "data");
-    return $scope.data.giver === user.$id;
-  };
 }); //ActivitiesListController

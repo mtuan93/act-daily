@@ -7,25 +7,21 @@ var appControllers = angular.module('appControllers',
 
 myApp.run(['$rootScope', '$location', function($rootScope, $location) {
   $rootScope.$on('$routeChangeError',
-  function(event, next, previous, error) {
-    if(error === 'AUTH_REQUIRED') {
-      $rootScope.message='Sorry, you must log in to access that page';
-      $location.path('/login');
-    }
+    function(event, next, previous, error) {
+      if(error === 'AUTH_REQUIRED') {
+        $location.path('/login');
+      }
   });
 
   $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       if ($rootScope.currentUser)  //already logged in
       {
-        if (  next.templateUrl === 'views/login.html' || 
-              next.templateUrl === 'views/register.html') // if try to go somewhere else
+        if( next.templateUrl === 'views/login.html' || 
+            next.templateUrl === 'views/register.html') // if try to go somewhere else
         {
-          $location.path( "/list" ); // redirect to list.html
+          $location.path( "/activities" ); // redirect to list.html
         } 
-        else 
-        {
-        }
-      }         
+      }   
   });
 }]);
 
@@ -67,6 +63,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
       }
     }).
     otherwise({
-      redirectTo: '/login'
+        redirectTo: '/activities'
     });
 }]);
