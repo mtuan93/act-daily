@@ -1,19 +1,44 @@
-This project is the combination of two of my other projects: Artist Search Engine and Angular Meetings.
+# Act Daily
 
-This is a web application that allows users to register, login, and post their daily activities. In addition to that, one can look up others via a search box and see his/her daily activities. Finally, anyone can post or delete comments for each activities of other users.
+### Demo
+[Live Demo](https://act-daily.firebaseapp.com)
 
-The web is written by AngularJs and the server uses Firebase API as backend service.
+To run the app with NodeJs and GulpJs, do the following:
 
-Demo:
+* Clone the project: `git clone https://github.com/mtuan93/act-daily.git`
+* Install npm plugins: `npm install`
+* Install gulp: `npm install -g gulp`
+* On the command line, start the local server: `gulp`
+* The web application is now available at `localhost:8000`
 
-Clone the project by running: git clone https://github.com/mtuan93/act-daily.git.
+### Introduction
 
-Install npm plugins by running: npm install.
+**Act Daily** is a **web application** that will let user posts daily activities and views other users' activities. User can also give comments on other's activities. **Act Daily** is written using **AngularJs**, **AngularFire**, and **NodeJs**.
 
-Install gulp by running: npm install -g gulp.
+The inspiration behind **Act Daily** is that since I and my girlfriend have too different schedules, we have a hard time keeping track of what each other did for that day. Everyday, instead of asking each other "what did you do today?", we can go check each other's daily activities out and comment on them.
 
-Run a local server by running: gulp.
+### Features
 
-The website is available at: localhost:8000.
+* Single page web application.
+* Friendly, responsive, and fast user interface.
+* Ability to register, login, and logout to Firebase server.
+* Ability to add and delete daily activities.
+* Ability to search other registered users.
+* Ability to view, comment, and edit comments on other's users' activities.
 
-Tuan Nguyen
+### Libraries
+
+* angular.js
+* angular-route.js
+* angular-animate.js
+* angularfire.js
+
+### API and Frameworks
+
+* Frontend: Angular, AngularFire
+* Backend: Firebase
+* Code runtime: NodeJs
+* Task runner: GulpJs
+
+
+
